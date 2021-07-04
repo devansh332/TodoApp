@@ -34,3 +34,12 @@ Project DataFlow And Logic
                         Progress Footer
             
             Data flow will be from Wrapper Components to TodoList And ProgressFooter,TodoList And ProgressFooter are both strucutral components
+    - Wrapper components holds todoCollection state variable which is object, object is used for faster element selection, functionality scaling, backword compatibility in case for onject change 
+    - for example : todoCollection  = {
+        1:{
+            task:"Wake up at 5 AM",
+            completed:false
+        },
+    }
+    here 1 represent key of the task, task holds information of the content of the task, completed is an boolean field which represent wheather the task is completed or not 
+    this collection will propogate through child components
