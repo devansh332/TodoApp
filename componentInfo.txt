@@ -14,3 +14,23 @@ React Framework:
             - It helps only if you are starting a project from scratch. It won't help on the case of your existing application where you need to partially migrate to react.
     
     As Above pros were enough to work on the project i have choosen CRA as Framework for this project 
+
+
+Project DataFlow And Logic
+    - Todo App will contain following Components
+        - Wrapper
+        - TodoList
+        - TodoItem
+        - TodoProgressFooter
+    - Data Flow Among these Components will be :
+            Wrapper ---⬇
+                        |
+                        |
+                        Title
+                        |
+                        TodoList ---⬇
+                                    TodoItems
+                        |
+                        Progress Footer
+            
+            Data flow will be from Wrapper Components to TodoList And ProgressFooter,TodoList And ProgressFooter are both strucutral components
