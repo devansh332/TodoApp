@@ -26,8 +26,10 @@ const  Wrapper = () => {
         console.log("onStatus",todoCollection)
     }
     const deletetask = (taskId)=>{
+        if (window.confirm(`Delete ${todoCollection[taskId]["task"]} ?`)) {
         delete todoCollection[taskId]
         setTodoCollection((prevState)=>({...prevState,...todoCollection}))
+        }
     }
     return (
         <React.Fragment>
