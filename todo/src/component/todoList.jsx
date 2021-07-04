@@ -2,7 +2,7 @@ import React from 'react'
 import TodoItem from './todoItem'
 
 
-const TodoList = ({todoCollection,onStatusMarked})=> {
+const TodoList = ({todoCollection,onStatusMarked,deletetask})=> {
     return (
         <React.Fragment>
             <div id="id_todolist" class="todolist">
@@ -16,6 +16,7 @@ const TodoList = ({todoCollection,onStatusMarked})=> {
                             content={todoCollection[item]['task']} 
                             isChecked={todoCollection[item]["completed"]}
                             onChange = {onStatusMarked}
+                            deletetask={deletetask}
                             />
                         </li>
 

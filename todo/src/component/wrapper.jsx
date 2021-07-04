@@ -25,10 +25,14 @@ const  Wrapper = () => {
         setTodoCollection((prevState)=>({...prevState,...todoCollection}))
         console.log("onStatus",todoCollection)
     }
+    const deletetask = (taskId)=>{
+        delete todoCollection[taskId]
+        setTodoCollection((prevState)=>({...prevState,...todoCollection}))
+    }
     return (
         <React.Fragment>
             <h1 id="id_title" class="title">Todo List</h1>
-            <TodoList todoCollection={todoCollection}  onStatusMarked = {onStatusMarked} />
+            <TodoList todoCollection={todoCollection}  onStatusMarked = {onStatusMarked} deletetask={deletetask} />
             <ProgressFooter />
         </React.Fragment>
 
