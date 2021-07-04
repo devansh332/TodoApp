@@ -1,0 +1,17 @@
+React Framework:
+    - CRA ( Create React App ) : As I learn More about CRA Found following Pro for using CRA 
+        Pros:
+            - You don't need to break yourself in configuration. You can just focus yourself on building the app.
+            - Saves a lot of time and energy as it provides a lot of common things out of the box.
+            - Training a newcomer about your project is easy. You just need to train them about the project and point them to the create-react-app documentation for setup and configuration.
+            - As it is maintained by Facebook, support for new features of React will be available immediately.
+            - Updating to a new version is super easy. Just replace the version of react-scripts in package.json and run npm install. That's it.
+            - Speaking of updating, as create-react-app takes care of handling under the hood things, updating things like webpack and babel will be taken care by them. We don't need to hassle with it again.
+
+        As Every Coin has second side i found some cons as well for using CRA 
+        Cons:
+            - It provides an opinionated option for building a react app. Not everyone will like that.
+            - It helps only if you are starting a project from scratch. It won't help on the case of your existing application where you need to partially migrate to react.
+    
+    As Above pros were enough to work on the project i have choosen CRA as Framework for this project 
+    
