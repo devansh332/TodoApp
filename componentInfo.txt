@@ -14,4 +14,3 @@ React Framework:
             - It helps only if you are starting a project from scratch. It won't help on the case of your existing application where you need to partially migrate to react.
     
     As Above pros were enough to work on the project i have choosen CRA as Framework for this project 
-    
