@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import TodoList from './todoList';
 import ProgressFooter from './todoProgressFooter';
+import AddNewTask from './addNewTask';
 
 
 const  Wrapper = () => {
@@ -51,11 +52,26 @@ const  Wrapper = () => {
         setTodoCollection((prevState)=>({...prevState,...todoCollection}))
         }
     }
+    const addNewTaskFn = ()=>{
+        let newTask =  prompt('Please add new task:');
+        if (newTask !== null || newTask !== "") {
+             let lastId = parseInt(Object.keys(todoCollection).slice(-1)[0]);
+             let newTaskItem = {task : newTask, completed: false} 
+             todoCollection[lastId+1] = newTaskItem;
+             setTodoCollection((prevState)=>({...prevState,...todoCollection}))
+         
+       } 
+     }
+
     return (
         <React.Fragment>
-            <h1 id="id_title" className="title">Todo List</h1>
-            <TodoList todoCollection={todoCollection}  onStatusMarked = {onStatusMarked} deletetask={deletetask} />
-            <ProgressFooter activeTasks={activeTasks} totalNumberOfTasks={numberOfTasks} />
+            <div className = "mainDiv">
+                <h1 id="id_title" className="title">Todo List</h1>
+                <AddNewTask addNewTaskFn = {addNewTaskFn} />
+                <TodoList todoCollection={todoCollection}  onStatusMarked = {onStatusMarked} deletetask={deletetask} />
+                <ProgressFooter activeTasks={activeTasks} totalNumberOfTasks={numberOfTasks} />
+            </div>
+            
         </React.Fragment>
 
 

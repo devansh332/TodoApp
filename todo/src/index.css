@@ -97,3 +97,11 @@ input[type=checkbox]{
 input[type=checkbox]:checked + label {
   color: rgb(110, 110, 110);
 } 
+.addTask{
+  cursor: pointer;
+  /* float: right; */
+  margin-left: auto;
+  font-size: 2vw;
+  display: flex;
+  flex-direction: row;
+}
