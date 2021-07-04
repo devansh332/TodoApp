@@ -1,10 +1,10 @@
 import React from 'react';
 
-const TodoItem = ({id,content}) => {
+const TodoItem = ({id,content,isChecked,onChange}) => {
     return (
         <React.Fragment>
         <div class="todoitems">
-            <input type= "checkbox" id={id}/> 
+            <input type= "checkbox" defaultChecked = {isChecked} id={id} onChange={onChange}/> 
             <label htmlFor={id}>{content}</label>
             <button class="btn" >Delete</button>
         </div>

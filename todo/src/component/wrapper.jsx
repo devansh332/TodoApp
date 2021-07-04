@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import TodoList from './todoList';
 import ProgressFooter from './todoProgressFooter';
 
@@ -14,11 +14,21 @@ const  Wrapper = () => {
             completed:false
         }
     }
+    const [todoCollection, setTodoCollection] = useState(todoCollectionArray)
+    const onStatusMarked = (e)=>{
+        const currentStatus = !e.target.defaultChecked
+        const todoid = parseInt(e.target.id)
+        console.log(currentStatus,todoid,todoCollection[todoid]["completed"])
+        todoCollection[todoid]["completed"] = currentStatus
+        console.log(todoCollection[todoid]["completed"])
 
+        setTodoCollection((prevState)=>({...prevState,...todoCollection}))
+        console.log("onStatus",todoCollection)
+    }
     return (
         <React.Fragment>
             <h1 id="id_title" class="title">Todo List</h1>
-            <TodoList todoCollection={todoCollectionArray} />
+            <TodoList todoCollection={todoCollection}  onStatusMarked = {onStatusMarked} />
             <ProgressFooter />
         </React.Fragment>
 
