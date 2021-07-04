@@ -1,9 +1,9 @@
 import React from 'react'
 
-const TodoProgressFooter = ()=> {
+const TodoProgressFooter = ({activeTasks,totalNumberOfTasks})=> {
     return (
         <div>
-            <span>1/2 task done</span>
+            <span>{activeTasks}/{totalNumberOfTasks} task done</span>
         </div>
     )
 }

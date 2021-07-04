@@ -5,7 +5,7 @@ import TodoItem from './todoItem'
 const TodoList = ({todoCollection,onStatusMarked,deletetask})=> {
     return (
         <React.Fragment>
-            <div id="id_todolist" class="todolist">
+            <div id="id_todolist" className="todolist">
                 <ul>
             {
                 Object.keys(todoCollection).map((item,index)=>{
