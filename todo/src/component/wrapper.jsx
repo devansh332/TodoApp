@@ -35,7 +35,6 @@ const  Wrapper = () => {
     const [numberOfTasks, setNumberOfTasks] = useState(getNumberOfTasks(todoCollectionArray))
 
     useEffect(()=>{
-        console.log('inside useeffect',todoCollection)
         setActiveTask(getActiveTasks(todoCollection))
         setNumberOfTasks(getNumberOfTasks(todoCollection))
     },[todoCollection])
@@ -54,7 +53,8 @@ const  Wrapper = () => {
     }
     const addNewTaskFn = ()=>{
         let newTask =  prompt('Please add new task:');
-        if (newTask !== null || newTask !== "") {
+        console.log("this is si",newTask)
+        if (newTask !=null && newTask.match(/^[a-z0-9 \s]+$/i)) {
              let lastId = parseInt(Object.keys(todoCollection).slice(-1)[0]);
              let newTaskItem = {task : newTask, completed: false} 
              todoCollection[lastId+1] = newTaskItem;
