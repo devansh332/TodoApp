@@ -10,7 +10,7 @@ const TodoList = ({todoCollection,onStatusMarked,deletetask})=> {
             {
                 Object.keys(todoCollection).map((item,index)=>{
                     return(
-                        <li>
+                        <li key={`${item}_key_${index}`}>
                             <TodoItem 
                             id = {item} 
                             content={todoCollection[item]['task']} 

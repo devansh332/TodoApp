@@ -7,7 +7,7 @@ const TodoItem = ({id,content,isChecked,onChange,deletetask}) => {
         <div className="todoitems">
             <input type= "checkbox" defaultChecked = {isChecked} id={id} onChange={onChange}/> 
             <label htmlFor={id}>{content}</label>
-            <button class="btn" onClick ={()=>deletetask(id)}><AiOutlineDelete/></button>
+            <button className="btn" onClick ={()=>deletetask(id)}><AiOutlineDelete/></button>
         </div>
         </React.Fragment>
     )
