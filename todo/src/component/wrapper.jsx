@@ -53,7 +53,7 @@ const  Wrapper = () => {
     }
     const addNewTaskFn = ()=>{
         let newTask =  prompt('Please add new task:');
-        if (newTask !=null && newTask.match(/^[a-z0-9 \s]+$/i)) {
+        if (newTask !=null && newTask.match(/.*\S+.*/i)) {
              let lastId = parseInt(Object.keys(todoCollection).slice(-1)[0]);
              let newTaskItem = {task : newTask, completed: false} 
              todoCollection[lastId+1] = newTaskItem;
