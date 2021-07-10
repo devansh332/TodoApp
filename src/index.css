@@ -1,22 +1,18 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
-/* *{
-  border: 1px solid wheat;
-} */
-#root{
-  /* border: 1px solid black; */
+#root {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -24,8 +20,7 @@ code {
   height: 100vh;
   width: 100vw;
 }
-.mainDiv{
-  /* border: 1px solid black; */
+.mainDiv {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -34,7 +29,7 @@ code {
   width: 50vw;
 }
 
-.title{
+.title {
   color: #afafea;
   font-size: 6vw;
 }
@@ -42,21 +37,19 @@ code {
   display: flex;
   flex-direction: column;
   width: 50vw;
-  overflow-y: scroll;
+  overflow-y: auto;
   max-height: 50vh;
-  
 }
-.todolist li{
+.todolist li {
   list-style-type: none;
   list-style: none;
-  width:100%;
-  
+  width: 100%;
 }
-.todolist ul{
-  padding:0px;
+.todolist ul {
+  padding: 0px;
 }
 
-.todoitems{
+.todoitems {
   display: flex;
   flex-direction: row;
   /* justify-content: space-between ; */
@@ -66,38 +59,37 @@ code {
   padding: 15px;
 }
 
-.todoitems label{
+.todoitems label {
   max-width: 40vw;
-  word-wrap:break-word;
+  word-wrap: break-word;
   font-size: 2vw;
-  margin-left: 2vw
+  margin-left: 2vw;
 }
-.todoitems button{
+.todoitems button {
   visibility: hidden;
-  border :none;
+  border: none;
   height: 4vh;
   margin-left: auto;
 }
-.todoitems:hover{
+.todoitems:hover {
   box-shadow: rgba(0, 0, 0, 0.22) 0px 5px 10px;
   transform: translate3d(0px, -1px, 0px);
 }
-.todoitems:hover .btn{
+.todoitems:hover .btn {
   visibility: visible;
   background-color: inherit;
-  
 }
-.btn{
+.btn {
   cursor: pointer;
 }
 
-input[type=checkbox]{
+input[type="checkbox"] {
   margin-top: 1vh;
 }
-input[type=checkbox]:checked + label {
+input[type="checkbox"]:checked + label {
   color: rgb(110, 110, 110);
-} 
-.addTask{
+}
+.addTask {
   cursor: pointer;
   /* float: right; */
   margin-left: auto;
