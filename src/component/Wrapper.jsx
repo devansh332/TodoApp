@@ -1,8 +1,10 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import TodoList from './TodoList';
 import ProgressFooter from './TodoProgressFooter';
 import AddNewTask from './AddNewTask';
 import AppTitle from './AppTitle';
+export const DeleteContext = React.createContext();
+export const OnStatusMarkedContext = React.createContext();
 const todoCollectionObject = {
   1: {
     task: 'Wake up at 5 AM',
@@ -38,14 +40,17 @@ const Wrapper = () => {
     }).length;
   }, [todoCollection]);
 
-  // useEffect will work as componentdidUpdate for todoCollection State and stores used action to local storage on each state update
+  /*  useEffect will work as componentdidUpdate for todoCollection State and 
+    stores used action to local storage on each state update */
   useEffect(() => {
     localStorage.setItem('todoCollection', JSON.stringify(todoCollection));
   }, [todoCollection]);
 
-  // onStatusMarked track taskId and its current check method, Checked parameter will be opposite to current checked state as passed by child component todoItem
+  /* onStatusMarked track taskId and its current check method,Checked parameter 
+  will be opposite to current checked state as passed by child component todoItem */
   const onStatusMarked = (taskId, checked) => {
-    // updateCollection  holds latest data from todoCollection state and set todoCollection on user interaction with todoItem
+    /* updateCollection  holds latest data from todoCollection state and 
+    set todoCollection on user interaction with todoItem */
     const currentStatus = checked;
     const todoid = parseInt(taskId);
     const updatedCollection = todoCollection;
@@ -56,7 +61,8 @@ const Wrapper = () => {
     }));
   };
 
-  // deleteTask is responsible for filtering task from the collections and set updated collection to todoCollection State
+  /* deleteTask is responsible for filtering task from the collections 
+  and set updated collection to todoCollection State */
   const deleteTask = (taskId) => {
     if (window.confirm(`Delete ${todoCollection[taskId]['task']} ?`)) {
       const updatedCollection = Object.keys(todoCollection)
@@ -72,7 +78,7 @@ const Wrapper = () => {
     }
   };
 
-  // addNewTaskFn Prompt user to add new task which will be added to todoCollection
+  /* addNewTaskFn Prompt user to add new task which will be added to todoCollection */
   const addNewTaskFn = () => {
     let newTask = prompt('Please add new task:');
     if (newTask != null && newTask.match(/.*\S+.*/i)) {
@@ -89,19 +95,18 @@ const Wrapper = () => {
       }));
     }
   };
-  /*
-  Wrapper component acts as a main Container component that propoagate states to structural components: Title todoList, ProgessFooter
-  
-  */
+  /* Wrapper component acts as a main Container component that propoagate states to 
+  structural components: Title todoList, ProgessFooter */
+
   return (
     <div className='mainDiv'>
       <AppTitle />
       <AddNewTask addNewTaskFn={addNewTaskFn} />
-      <TodoList
-        todoCollection={todoCollection}
-        onStatusMarked={onStatusMarked}
-        deleteTask={deleteTask}
-      />
+      <OnStatusMarkedContext.Provider value={onStatusMarked}>
+        <DeleteContext.Provider value={deleteTask}>
+          <TodoList todoCollection={todoCollection} />
+        </DeleteContext.Provider>
+      </OnStatusMarkedContext.Provider>
       <ProgressFooter
         activeTasks={activeTasks}
         totalNumberOfTasks={Object.keys(todoCollection).length}
