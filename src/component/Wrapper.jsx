@@ -22,6 +22,10 @@ const todoCollectionObject = {
     task: 'Make Plans for himachal trip',
     completed: false,
   },
+  5: {
+    task: 'Make new Plans for himachal trip',
+    completed: false,
+  },
 };
 
 const Wrapper = () => {
